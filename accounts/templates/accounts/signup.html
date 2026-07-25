@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Sign up {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-block">
+    <form method="POST">
+        <h1 class="page-title">Create an account</h1>
+        {% csrf_token %}
+        <div class="form-item">
+            <label>Username</label>
+            {{ form.username }}
+        </div>
+        <div class="form-item">
+            <label>E-mail</label>
+            {{ form.email }}
+        </div>
+        <div class="form-item">
+            <label>Password</label>
+            {{ form.password1 }}
+        </div>
+        <div class="form-item">
+            <label>Confirm Password</label>
+            {{ form.password2 }}
+        </div>
+
+
+        <button type="submit" class="submit-btn">Sign Up</button>
+        <p class="form-footer">Already have an account? <a href="{% url 'signin' %}" class="redirect-btn">Log in</a> </p>
+    </form>
+</div>
+
+{% endblock %}

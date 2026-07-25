@@ -1,0 +1,74 @@
+.auth-block {
+    margin-top: 6dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-title {
+    font-size: 24px;
+    color: rgb(26, 25, 25);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.redirect-btn {
+    color: #8953a1;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+form {
+    border: 1px solid rgba(32, 32, 32, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 5px 60px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    min-width: 350px;
+}
+
+label {
+    color: #757575;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-footer {
+    font-size: 17px;
+    color: #757575;
+}
+
+.submit-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 12px;
+    color: white;
+    background-color: #8953a1;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+}

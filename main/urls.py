@@ -1,0 +1,8 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('go/<str:chars>', views.visitShort, name='redirecturl'),
+    path('unshortner/', views.unshort, name='unshortner'),
+]

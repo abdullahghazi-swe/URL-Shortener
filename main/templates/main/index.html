@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load qr_code %}
+
+{% block title %}URL Shortner{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="app">
+    <h1 class="headline">Create a short URL with one click</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="url-block">
+            <div class="top-row">
+                {{ form.input_url }}
+                <button type="submit" class="submit">Create URL</button>
+            </div>
+            <div class="bottom-row">
+                <span class="domain">http://localhost:8000/go/</span>
+                {{ form.shorten }}
+            </div>
+            
+        </div>
+    </form>
+    
+        {% if url.1 %}
+            <div class="output-url">
+                <a href="{{ url.1 }}" class="new-url" target="_blank">{{ url.1 }}</a>
+            </div>
+            <div class="output-url">
+                <a href="{{ url.1 }}" id="short-url" class="new-url" target="_blank">http://localhost:8000/go/{{ url.0 }}</a>
+                <button class="copy">❐</button>
+            </div>
+            <button class="qrBtn">Generate QR Code</button>
+            <div class="qrcode">
+                {% qr_from_text url.1 size='S' %}
+            </div>
+        {% endif %}
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'main/js/script.js' %}"></script>
+{% endblock %}

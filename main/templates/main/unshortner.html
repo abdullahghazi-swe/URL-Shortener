@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}URL Unshortner{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="app">
+    <h1 class="headline">Unshorten any URL</h1>
+
+    <form method="POST" class="unshort-form">
+        {% csrf_token %}
+        {{ form.url }}
+        <button type="submit" class="submit">Unshorten</button>
+    </form>
+
+    {% if data.1 %}
+        <div class="output-url">
+            <p class="new-url">Status: {{ data.0 }}</p>
+        </div>
+        <div class="output-url">
+            <a href="{{ data.1 }}" class="new-url" id="long-url" target="_blank">{{ data.1 }}</a>
+            <button class="copy">❐</button>
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'main/js/script.js' %}"></script>
+{% endblock %}
+

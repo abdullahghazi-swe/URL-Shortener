@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+header {
+    height: 64px;
+    background-color: rgb(137, 83, 161);
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    margin-bottom: 48px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 45px;
+    margin-right: 8px;
+}
+
+main {
+    height: 90dvh;
+    width: 80vw;
+}
+
+.nav-btn {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.auth-nav {
+    background-color: white;
+    margin-left: 20px;
+    
+    border-radius: 16px;
+    padding: 8px 16px;
+}
+
+.login-btn {
+    color:rgb(137, 83, 161);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.register-btn {
+    margin-left: 8px;
+    background-color: rgb(137, 83, 161);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+.logout-btn {
+    background-color: #fff;
+    color: rgb(137, 83, 161);
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-left: 28px;
+}
