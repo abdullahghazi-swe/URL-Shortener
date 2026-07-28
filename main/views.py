@@ -11,7 +11,8 @@ def home(request):
     sessionOutput = request.session.get('output_url', '')
     savedurl = [sessionOutput, sessionInput]
     if sessionInput:
-        request.session.clear()
+        request.session.pop('input_url', None)
+        request.session.pop('output_url', None)
 
     if request.method == "POST":
         form = UrlForm(request.POST)
@@ -50,8 +51,9 @@ def unshort(request):
     sessionUrl = request.session.get('original_url', '')
     urlData = [sessionStatus, sessionUrl]
     if sessionUrl:
-        request.session.clear()
-
+        request.session.pop('url_status', None)
+        request.session.pop('original_url', None)
+        
     if request.method == "POST":
         form = UnshortForm(request.POST)
         if form.is_valid():

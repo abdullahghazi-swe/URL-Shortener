@@ -28,6 +28,7 @@ A Django-based URL management system that allows users to shorten URLs, retrieve
 - URL analytics
 - Rate limiting
 - Mobile-responsive UI
+- Private URLs
 
 
 ## Author
