@@ -1,9 +1,20 @@
 from .base import *
+from decouple import config
 
-SECRET_KEY = ""
+SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = False
+DEBUG = config("DEBUG", cast=bool, default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config(
+    "ALLOWED_HOSTS",
+    default="*"
+    ).split(",")
 
-DATABASES = {}
+
+
+DATABASES = {
+    "defaults": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
