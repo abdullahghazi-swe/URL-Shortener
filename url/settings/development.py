@@ -1,9 +1,10 @@
 from .base import *
+from decouple import config
 
-SECRET_KEY = 'django-insecure-8x8c44scpdn=+()9@@cwg0no@cc%n6q)ahj=tki6l13&p(8!h#'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = []
 
