@@ -35,7 +35,7 @@ def home(request):
     else:
         form = UrlForm()
 
-    return render(request, 'main/index.html', {"form": form, "url": savedurl})
+    return render(request, 'main/index.html', {"form": form, "url": savedurl, 'base_url': request.build_absolute_uri("/").rstrip("/")})
 
 def visitShort(request, chars):
     if chars:
