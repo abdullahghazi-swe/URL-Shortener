@@ -3,7 +3,7 @@ from decouple import config
 
 SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = config("DEBUG", cast=bool, default=True)
+DEBUG = False
 
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
@@ -13,7 +13,7 @@ ALLOWED_HOSTS = config(
 
 
 DATABASES = {
-    "defaults": {
+    "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }

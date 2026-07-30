@@ -5,6 +5,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Show Python logs immediately
 ENV PYTHONUNBUFFERED=1
 
+ENV DJANGO_SETTINGS_MODULE=url.settings.production
+
 # Working directory inside the container
 WORKDIR /app
 
@@ -17,8 +19,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the project
 COPY . .
 
+RUN chmod +x entrypoint.sh
+
 # Tell Docker the application listens on port 8000
 EXPOSE 8000
 
 # Start Gunicorn
-CMD ["gunicorn", "url.wsgi:application", "--bind", "0.0.0.0:8000"]
+ENTRYPOINT [ "./entrypoint.sh" ]
