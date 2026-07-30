@@ -1,8 +1,10 @@
+from urllib.parse import urlparse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UrlForm, UnshortForm
 from .models import UrlList
 from .utils import getNewStr
 import requests
+
 
 # Create your views here.
 
@@ -10,9 +12,9 @@ def home(request):
     sessionInput = request.session.get('input_url', '')
     sessionOutput = request.session.get('output_url', '')
     savedurl = [sessionOutput, sessionInput]
-    if sessionInput:
-        request.session.pop('input_url', None)
-        request.session.pop('output_url', None)
+
+    request.session.pop('input_url', None)
+    request.session.pop('output_url', None)
 
     if request.method == "POST":
         form = UrlForm(request.POST)
@@ -50,15 +52,29 @@ def unshort(request):
     sessionStatus = request.session.get('url_status', '')
     sessionUrl = request.session.get('original_url', '')
     urlData = [sessionStatus, sessionUrl]
-    if sessionUrl:
-        request.session.pop('url_status', None)
-        request.session.pop('original_url', None)
+
+    request.session.pop('url_status', None)
+    request.session.pop('original_url', None)
         
     if request.method == "POST":
         form = UnshortForm(request.POST)
         if form.is_valid():
+            baseUrl = request.build_absolute_uri("/").rstrip("/")
             shortUrl = form.cleaned_data['url']
 
+            current = urlparse(baseUrl)
+            target = urlparse(shortUrl)
+
+            if current.netloc == target.netloc:
+
+                code = shortUrl.rstrip('/').split('/')[-1]
+                link = UrlList.objects.get(shorten=code)
+
+                request.session['url_status'] = '200'
+                request.session['original_url'] = link.input_url
+
+                return redirect('unshortner')
+            
             response = requests.get(shortUrl)
 
             status = response.status_code
