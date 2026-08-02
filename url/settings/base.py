@@ -13,7 +13,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'main',
-    'qr_code'
+    'qr_code',
+    'analytics',
 ]
 
 MIDDLEWARE = [

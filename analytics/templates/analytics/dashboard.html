@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'analytics/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+    <h2>Dashboard</h2>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'analytics/js/script.js' %}"></script>
+{% endblock %}
