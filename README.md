@@ -34,5 +34,5 @@ A Django-based URL management system that allows users to shorten URLs, retrieve
 ## Author
 
 **Abdullah Ghazi** <br>
-GitHub: https://github.com/Abdullah-Ghazi0 <br>
+GitHub: https://github.com/abdullahghazi-swe <br>
 LinkedIn: https://www.linkedin.com/in/abdullah-ghazi-swe/
