@@ -5,7 +5,6 @@ from .models import UrlList
 from .utils import getNewStr
 import requests
 
-
 # Create your views here.
 
 def home(request):
@@ -24,12 +23,12 @@ def home(request):
             inputUrl = form.cleaned_data['input_url']
             keywords = form.cleaned_data['shorten']
 
-            chars = getNewStr()
-            if keywords:
-                chars = keywords
+            chars = keywords if keywords else getNewStr()
+            creator = None
+            if request.user.is_authenticated:
+                creator = request.user
 
-
-            UrlList.objects.create(input_url= inputUrl, shorten = chars)
+            UrlList.objects.create(input_url=inputUrl, shorten=chars, created_by=creator)
             savedurl = get_object_or_404(UrlList, shorten = chars)
             request.session['output_url'] = savedurl.shorten
             request.session['input_url'] = inputUrl
