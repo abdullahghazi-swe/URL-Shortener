@@ -10,7 +10,21 @@
 {% block content %}
 
 <div class="dashboard">
-    <h2>Dashboard</h2>
+    <h2 class="heading">My URLs</h2>
+    <div class="url-list">
+        <div class="table-head">
+            <div class="column col-1">Original URL</div>
+            <div class="column col-2">Short URL</div>
+        </div>
+        {% if urls %}
+            {% for url in urls %}
+                <div class="list-item">
+                    <div class="cell">{{ url.input_url }}</div>
+                    <div class="cell">{{ host }}/go/{{ url.shorten }}</div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

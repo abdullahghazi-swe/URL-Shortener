@@ -5,5 +5,7 @@ from main.models import UrlList
 # Create your views here.
 @login_required
 def dashboard(request):
-    my_urls = UrlList.objects.filter(created_by = request.user)
-    return render(request, 'analytics/dashboard.html')
+    host = request.build_absolute_uri("/").rstrip("/")
+
+    my_urls = request.user.urls.all()
+    return render(request, 'analytics/dashboard.html', {'urls': my_urls, 'host': host})
