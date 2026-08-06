@@ -1,9 +1,9 @@
+import requests
 from urllib.parse import urlparse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UrlForm, UnshortForm
 from .models import UrlList
 from .utils import getNewStr
-import requests
 
 # Create your views here.
 
@@ -40,11 +40,11 @@ def home(request):
 
 def visitShort(request, chars):
     if chars:
-        value = UrlList.objects.get(shorten = chars)
-        if not value:
+        link = UrlList.objects.get(shorten = chars)
+        if not link:
             print('url does not exist')
 
-        return redirect(value.input_url)
+        return redirect(link.input_url)
     
 
 def unshort(request):

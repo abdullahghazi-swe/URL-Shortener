@@ -20,10 +20,12 @@
                 {{ form.input_url }}
                 <button type="submit" class="submit">Create URL</button>
             </div>
-            <div class="bottom-row">
-                <span class="domain">{{ base_url }}/go/</span>
-                {{ form.shorten }}
-            </div>
+            {% if user.is_authenticated %}
+                <div class="bottom-row">
+                    <span class="domain">{{ base_url }}/go/</span>
+                    {{ form.shorten }}
+                </div>
+            {% endif %}
             
         </div>
     </form>
