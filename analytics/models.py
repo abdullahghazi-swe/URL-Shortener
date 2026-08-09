@@ -11,4 +11,4 @@ class Visit(models.Model):
     os = models.CharField(max_length=100)
     device_type = models.CharField(max_length=100)
     is_bot = models.BooleanField(default=False)
-    visited_at = models.DateTimeField(auto_now=True)
+    visited_at = models.DateTimeField(auto_now_add=True)

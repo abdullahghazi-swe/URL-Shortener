@@ -19,3 +19,24 @@ def getNewStr():
 
         if not exist:
             return chars
+
+
+def getClientIp(request):
+    forward = request.META.get("HTTP_X_FORWARDED_FOR")
+
+    if forward:
+        return forward.split(',')[0].strip()
+
+    return request.META.get("REMOTE_ADDR")
+
+def getDevice(ua):
+    if ua.is_mobile:
+        device="Mobile"
+    elif ua.is_pc:
+        device="Desktop"
+    elif ua.is_tablet:
+        device="Tablet"
+    else:
+        device='Others'
+
+    return device

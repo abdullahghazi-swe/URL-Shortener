@@ -1,9 +1,11 @@
 import requests
 from urllib.parse import urlparse
+from user_agents import parse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UrlForm, UnshortForm
 from .models import UrlList
-from .utils import getNewStr
+from .utils import getNewStr, getClientIp, getDevice
+from analytics.models import Visit
 
 # Create your views here.
 
@@ -44,6 +46,17 @@ def visitShort(request, chars):
         if not link:
             print('url does not exist')
 
+        ua = parse(request.META.get('HTTP_USER_AGENT', ''))
+
+        Visit.objects.create(
+            url=link,
+            referrer=request.META.get('HTTP_REFERRER'),
+            ip_address=getClientIp(request),
+            browser=ua.browser.family,
+            os=ua.os.family,
+            device_type=getDevice(ua),
+            is_bot=ua.is_bot,
+        )
         return redirect(link.input_url)
     
 
