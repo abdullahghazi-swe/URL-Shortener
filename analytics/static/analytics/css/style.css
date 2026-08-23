@@ -28,7 +28,6 @@
 .table-head {
     width: 100%;
     display: flex;
-    justify-content: space-around;
     background-color: rgb(137, 83, 161);
     color: white;
     border-radius: 8px;
@@ -37,30 +36,73 @@
 .column {
     font-size: 24px;
     padding: 6px 0;
-    width: 50%;
     font-weight: 600;
     text-align: center;
 }
 
-.col-1 {
+.col-border {
     border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.col-1 {
+    width: 50%;
+}
+.col-2,
+.col-3 {
+    width: 19%;
+}
+
+.col-4 {
+    width: 12%;
 }
 
 .list-item {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: white;
     border-radius: 8px;
     font-size: 20px;
     font-weight: 400;
+    color: black;
 }
 
-.cell {
+.left-box {
+    padding: 16px;
+    width: 50%;
+}
+
+.clicks,
+.status {
+    width: 19%;
+    text-align: center;
+    font-size: 26px;
+}
+
+.actions {
+    width: 12%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.og-url {
+    padding-left: 8px;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 8px 18px;
-    padding-right: 24px;
     width: 50%;
+    font-size: 16px;
+}
+
+.short-url {
+    margin-top: 24px;
+    font-size: 18px;
+}
+
+.title {
+    font-size: 20px;
 }

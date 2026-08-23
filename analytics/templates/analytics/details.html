@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Link - Details {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'analytics/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div>
+    {{ link.input_url }}
+</div>
+{% endblock %}
