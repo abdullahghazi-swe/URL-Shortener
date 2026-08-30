@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Link - Edit {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>This is your link!</div>
+    <div>Destination URL:{{ url.input_url }}</div>
+    <div class="short-url">Short:{{ url.shorten }}</div>
+</div>
+{% endblock %}

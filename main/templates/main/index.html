@@ -22,8 +22,14 @@
             </div>
             {% if user.is_authenticated %}
                 <div class="bottom-row">
-                    <span class="domain">{{ base_url }}/go/</span>
-                    {{ form.shorten }}
+                    <div class="title">
+                        <label for="title" class="title-label">Title:</label>
+                        {{ form.title }}
+                    </div>
+                    <div class="alias">
+                        <span class="domain">{{ base_url }}/go/</span>
+                        {{ form.shorten }}
+                    </div>
                 </div>
             {% endif %}
             

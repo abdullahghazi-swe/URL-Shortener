@@ -2,6 +2,7 @@ import requests
 from urllib.parse import urlparse
 from user_agents import parse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .forms import UrlForm, UnshortForm
 from .models import UrlList
 from .utils import getNewStr, getClientIp, getDevice
@@ -24,13 +25,14 @@ def home(request):
 
             inputUrl = form.cleaned_data['input_url']
             keywords = form.cleaned_data['shorten']
+            title = form.cleaned_data['title']
 
             chars = keywords if keywords else getNewStr()
             creator = None
             if request.user.is_authenticated:
                 creator = request.user
 
-            UrlList.objects.create(input_url=inputUrl, shorten=chars, created_by=creator)
+            UrlList.objects.create(input_url=inputUrl, shorten=chars, created_by=creator, title=title)
             savedurl = get_object_or_404(UrlList, shorten = chars)
             request.session['output_url'] = savedurl.shorten
             request.session['input_url'] = inputUrl
@@ -99,3 +101,9 @@ def unshort(request):
         form = UnshortForm()
 
     return render(request, 'main/unshortner.html', {'form': form, "data": urlData})
+
+@login_required
+def edit_url(request, id):
+    url = UrlList.objects.get(id=id)
+
+    return render(request, 'main/edit.html', {'url':url})

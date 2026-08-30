@@ -9,6 +9,12 @@
 
 {% block content %}
 <div>
-    {{ link.input_url }}
+    <div>This is your link!</div>
+    <div>Destination URL:{{ link.input_url }}</div>
+    <div class="short-url">Short URL:{{ host }}/go/{{ link.shorten }}</div>
+    <div>Clicks:{{ clicks }}</div>
+    <div>Created at:{{ link.created_at }}</div>
+
+    <a href="{% url 'edit' link.id %}" class="list-item">Edit</a>
 </div>
 {% endblock %}

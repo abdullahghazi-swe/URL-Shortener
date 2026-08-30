@@ -11,7 +11,7 @@
 
 <div class="dashboard">
     <h2 class="heading">My URLs</h2>
-    <div class="url-list">
+    <div class="table">
         <div class="table-head">
             <div class="column col-1 col-border">Links</div>
             <div class="column col-2 col-border">Clicks</div>
@@ -19,20 +19,28 @@
             <div class="column col-4">Actions</div>
         </div>
         {% if urls %}
-            {% for url in urls %}
-                <a href="{% url 'link_details' url.id %}" class="list-item">
-                    <div class="left-box">
-                        <div class="title">This is your Link</div>
-                        <div class="og-url">{{ url.input_url }}</div>
-                        <div class="short-url">{{ host }}/go/{{ url.shorten }}</div>
-                    </div>
-                    <div class="clicks">
-                        {{ url.clicks }}
-                    </div>
-                    <div class="status">Active</div>
-                    <div class="actions">⋯</div>
-                </a>
-            {% endfor %}
+            <div class="url-list">
+                {% for url in urls %}
+                    <a href="{% url 'link_details' url.id %}" class="list-item">
+                        <div class="left-box">
+                            <div class="title">
+                                {% if url.title %}
+                                    {{ url.title }}
+                                {% else %}
+                                    No title
+                                {% endif %}
+                            </div>
+                            <div class="og-url">{{ url.input_url }}</div>
+                            <div class="short-url">{{ host }}/go/{{ url.shorten }}</div>
+                        </div>
+                        <div class="clicks">
+                            {{ url.clicks }}
+                        </div>
+                        <div class="status">Active</div>
+                        <div class="actions">⋯</div>
+                    </a>
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 </div>

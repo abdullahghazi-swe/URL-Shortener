@@ -14,12 +14,16 @@ class UrlForm(forms.ModelForm):
 
     class Meta:
         model = UrlList
-        fields = ['input_url', 'shorten']
+        fields = ['title','input_url', 'shorten']
 
         widgets = {
             "input_url" : forms.URLInput(attrs={
                 "placeholder": "Enter link here",
                 "class": "url-field",
+            }),
+            "title" : forms.TextInput(attrs={
+                "Placeholder": "(optional)",
+                "class": "title-field",
             })
         }
 

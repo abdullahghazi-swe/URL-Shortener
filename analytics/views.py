@@ -13,6 +13,9 @@ def dashboard(request):
 
 @login_required
 def link_details(request, url_id):
-
+    host = request.build_absolute_uri("/").rstrip("/")
     link = UrlList.objects.get(id=url_id)
-    return render(request, 'analytics/details.html', {'link': link})
+    visits = link.visits.all()
+    clicks = len(visits)
+    
+    return render(request, 'analytics/details.html', {'link': link, 'host': host, 'clicks': clicks})

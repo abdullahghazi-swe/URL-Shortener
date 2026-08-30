@@ -34,8 +34,24 @@
 
 .bottom-row {
     display: flex;
-    gap: 8px;
+    gap: 64px;
     justify-content: center;
+}
+
+.title-field {
+    width: 360px;
+    padding: 16px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    color: rgb(27, 27, 27);
+}
+
+.title-label {
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .url-field {
