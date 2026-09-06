@@ -9,7 +9,13 @@
 
 {% block content %}
 <div>
-    <div>This is your link!</div>
+    <div>
+        {% if link.title %}
+            {{ link.title }}
+        {% else %}
+            No Title
+        {% endif %}
+    </div>
     <div>Destination URL:{{ link.input_url }}</div>
     <div class="short-url">Short URL:{{ host }}/go/{{ link.shorten }}</div>
     <div>Clicks:{{ clicks }}</div>

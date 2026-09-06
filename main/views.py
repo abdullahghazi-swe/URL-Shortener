@@ -106,4 +106,14 @@ def unshort(request):
 def edit_url(request, id):
     url = UrlList.objects.get(id=id)
 
-    return render(request, 'main/edit.html', {'url':url})
+    if request.method == "POST":
+        form = UrlForm(request.POST, instance=url)
+
+        if form.is_valid():
+            form.save()
+            return redirect('link_details', url_id=url.id)
+        
+    else:
+        form = UrlForm(instance=url)
+
+    return render(request, 'main/edit.html', {'url':url, 'form': form})

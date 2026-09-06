@@ -9,8 +9,26 @@
 
 {% block content %}
 <div>
-    <div>This is your link!</div>
-    <div>Destination URL:{{ url.input_url }}</div>
-    <div class="short-url">Short:{{ url.shorten }}</div>
+    <h2>Edit Link</h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="url-block">
+            <div class="title">
+                    <label for="title" class="title-label">Title:</label>
+                    {{ form.title }}
+            </div>
+            <div class="top-row">
+                <label for="input_url" class="title-label">Destination URL:</label>
+                {{ form.input_url }}
+            </div>
+            <div class="alias">
+                <label for="shorten" class="title-label">Custom alias:</label>
+                <span class="domain">{{ base_url }}/go/</span>
+                {{ form.shorten }}
+            </div>
+            <button type="submit" class="submit saveChanges">Save Changes</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

@@ -110,6 +110,13 @@
     scale: 0.95;
 }
 
+.saveChanges {
+    width: fit-content;
+    text-wrap: nowrap;
+    padding: 8px 12px;
+    height: auto;
+}
+
 .output-url {
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
