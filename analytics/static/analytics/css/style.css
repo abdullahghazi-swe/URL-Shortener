@@ -67,6 +67,11 @@
     width: 12%;
 }
 
+.link {
+    position: relative;
+    width: 100%;
+}
+
 .list-item {
     display: flex;
     align-items: center;
@@ -91,12 +96,32 @@
     font-size: 26px;
 }
 
-.actions {
+.action-col {
     width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions {
+    background: transparent;
+    border: none;
     text-align: center;
     cursor: pointer;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 800;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;
+}
+
+.actions:hover {
+    background-color: rgb(195, 201, 207);
 }
 
 .og-url {
@@ -116,4 +141,38 @@
 
 .title {
     font-size: 20px;
+}
+
+.drop-down {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70%;
+    right: 50px;
+    z-index: 100;
+    padding: 8px;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #6e6e709c;
+}
+
+.drop-down button {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.drop-down button:hover {
+    background-color: rgb(199, 204, 207);
+}
+
+.drop-down a {
+    color: black;
+}
+
+.show {
+    display: flex;
 }
