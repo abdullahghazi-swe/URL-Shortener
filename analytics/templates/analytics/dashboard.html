@@ -44,11 +44,11 @@
                         </a>
                         <div id="menu-{{ url.id }}" class="drop-down">
                             <button><a href="{{ url.input_url }}" target="_blank">Open destination</a></button>
-                            <button>Copy short URL</button>
+                            <button data-action="copy">Copy short URL</button>
                             <button><a href="{% url 'edit' url.id %}">Edit</a></button>
                             <button><a href="{% url 'link_details' url.id %}">View analytics</a></button>
                             <button>Pause</button>
-                            <button>Generate QR code</button>
+                            <button><a href="{% url 'link_qr' url.id %}">Generate QR code</a></button>
                         </div>
                     </div>
                 {% endfor %}

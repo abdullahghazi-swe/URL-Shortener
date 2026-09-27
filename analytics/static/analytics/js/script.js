@@ -21,8 +21,22 @@ urlList?.addEventListener('click', e => {
 document.addEventListener('click', e => {
     const dropDown = e.target.closest('.drop-down')
     const btn = e.target.closest('.actions')
+    if (btn) return;
 
-    if (dropDown || btn) return;
+    if (dropDown) {
+
+        const actionBtn = e.target.closest("button")
+        if (actionBtn.dataset.action === 'copy') {
+            const link = e.target.closest('.link').querySelector('.short-url')
+            try {
+                navigator.clipboard.writeText(link.textContent)
+            } catch {
+                console.error("Couldnt Copy link:", err)
+            }
+        } else {
+            return;
+        }
+    }
 
     const activeDropDown = document.querySelector('.drop-down.show');
     if (activeDropDown) {

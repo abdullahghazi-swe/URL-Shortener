@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load qr_code %}
 
 {% block title %} Link - Details {% endblock %}
 
@@ -20,6 +21,14 @@
     <div class="short-url">Short URL:{{ host }}/go/{{ link.shorten }}</div>
     <div>Clicks:{{ clicks }}</div>
     <div>Created at:{{ link.created_at }}</div>
+
+    {% if show_qr %}
+        <a href="{% url 'link_details' link.id %}" class="overlay">
+            <div class="modal">
+                {% qr_from_text link.input_url size='M' %}
+            </div>
+        </a>
+    {% endif %}
 
     <a href="{% url 'edit' link.id %}" class="list-item">Edit</a>
 </div>
