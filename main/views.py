@@ -117,3 +117,15 @@ def edit_url(request, id):
         form = UrlForm(instance=url)
 
     return render(request, 'main/edit.html', {'url':url, 'form': form})
+
+@login_required
+def change_status(request, id):
+    if request.method != "POST":
+        return redirect('dashboard')
+
+    url = get_object_or_404(UrlList, id=id)
+
+    url.status = 'active' if url.status == 'disabled' else 'disabled'
+    url.save()
+    return redirect('dashboard')
+

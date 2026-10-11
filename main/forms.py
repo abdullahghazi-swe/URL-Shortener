@@ -11,10 +11,14 @@ class UrlForm(forms.ModelForm):
             "class": "alias-field",
         })
     )
+    status = forms.ChoiceField(
+        choices=[('active', 'Active'), ('disabled', 'Disabled')],
+        widget=forms.Select(attrs={'class': 'status-field'})
+    )
 
     class Meta:
         model = UrlList
-        fields = ['title','input_url', 'shorten']
+        fields = ['title','input_url', 'shorten', 'status']
 
         widgets = {
             "input_url" : forms.URLInput(attrs={

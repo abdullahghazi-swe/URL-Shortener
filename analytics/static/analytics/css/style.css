@@ -195,3 +195,7 @@
     border-radius: 16px;
     padding: 8px;
 }
+
+.full-wide {
+    width: 100%;
+}

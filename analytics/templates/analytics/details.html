@@ -21,6 +21,7 @@
     <div class="short-url">Short URL:{{ host }}/go/{{ link.shorten }}</div>
     <div>Clicks:{{ clicks }}</div>
     <div>Created at:{{ link.created_at }}</div>
+    <div>Status:{{ link.status|title }}</div>
 
     {% if show_qr %}
         <a href="{% url 'link_details' link.id %}" class="overlay">

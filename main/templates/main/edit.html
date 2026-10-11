@@ -22,11 +22,18 @@
                 <label for="input_url" class="title-label">Destination URL:</label>
                 {{ form.input_url }}
             </div>
-            <div class="alias">
-                <label for="shorten" class="title-label">Custom alias:</label>
-                <span class="domain">{{ base_url }}/go/</span>
-                {{ form.shorten }}
+            <div class="info-row">
+                <div class="alias">
+                    <label for="shorten" class="title-label">Custom alias:</label>
+                    <span class="domain">{{ base_url }}/go/</span>
+                    {{ form.shorten }}
+                </div>
+                <div class="status-box">
+                    <label for="status" class="title-label">Status:</label>
+                    {{ form.status }}
+                </div>
             </div>
+            
             <button type="submit" class="submit saveChanges">Save Changes</button>
         </div>
     </form>

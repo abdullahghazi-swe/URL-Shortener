@@ -37,7 +37,7 @@
                             <div class="clicks">
                                 {{ url.clicks }}
                             </div>
-                            <div class="status">Active</div>
+                            <div class="status">{{ url.status|title }}</div>
                             <div class="action-col">
                                 <button data-id="{{ url.id }}" class="actions">⋯</button>
                             </div>
@@ -47,7 +47,16 @@
                             <button data-action="copy">Copy short URL</button>
                             <button><a href="{% url 'edit' url.id %}">Edit</a></button>
                             <button><a href="{% url 'link_details' url.id %}">View analytics</a></button>
-                            <button>Pause</button>
+                            <form method="POST" action="{% url 'status' url.id %}">
+                                {% csrf_token %}
+                                <button class="full-wide">
+                                    {% if url.status == 'active' %}
+                                        Disable
+                                    {% else %} 
+                                        Activate
+                                    {% endif %}
+                                </button>
+                            </form>
                             <button><a href="{% url 'link_qr' url.id %}">Generate QR code</a></button>
                         </div>
                     </div>

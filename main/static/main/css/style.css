@@ -76,9 +76,30 @@
     color: rgb(27, 27, 27);
 }
 
+.info-row {
+    display: flex;
+    gap: 50px;
+}
+
 .alias-field {
     width: 225px;
     padding: 16px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    color: rgb(27, 27, 27);
+}
+
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-field {
+    padding: 4px;
     height: 40px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 8px;
