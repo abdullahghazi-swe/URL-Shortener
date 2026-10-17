@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load qr_code %}
+
+{% block title %}URL Shortner{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="info-box">
+        {{ message }}
+    </section>
+
+{% endblock %}

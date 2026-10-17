@@ -44,9 +44,14 @@ def home(request):
 
 def visitShort(request, chars):
     if chars:
-        link = UrlList.objects.get(shorten = chars)
+        link = UrlList.objects.filter(shorten = chars).first()
         if not link:
-            print('url does not exist')
+            message = "The URL you are trying to access does not exist!"
+            return render(request, "info.html", {'message': message})
+
+        if link.status == "disabled":
+            message = "The URL you are trying to access is currently Disabled!"
+            return render(request, "info.html", {'message': message})
 
         ua = parse(request.META.get('HTTP_USER_AGENT', ''))
 
