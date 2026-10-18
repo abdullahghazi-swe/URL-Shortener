@@ -1,4 +1,7 @@
 const urlList = document.querySelector('.url-list');
+const deleteBtn = document.querySelector('#deleteBtn');
+const deleteModal = document.querySelector('.delete-modal')
+const cancelDel = document.querySelector('.cancel-btn')
 
 urlList?.addEventListener('click', e => {
     const btn = e.target.closest('.actions');
@@ -43,3 +46,22 @@ document.addEventListener('click', e => {
         activeDropDown.classList.remove('show');
     }
 })
+
+deleteBtn?.addEventListener('click', e => {
+    if (deleteModal) {
+        deleteModal.classList.add('show');
+    }
+})
+
+deleteModal?.addEventListener('click', e => {
+
+    if (e.target === deleteModal) {
+        closeModal();
+    }
+})
+
+cancelDel?.addEventListener('click', closeModal)
+
+function closeModal() {
+    deleteModal?.classList.remove('show')
+}

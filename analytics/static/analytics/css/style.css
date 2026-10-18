@@ -173,10 +173,6 @@
     color: black;
 }
 
-.show {
-    display: flex;
-}
-
 .overlay {
     position: fixed;
     width: 100vw;
@@ -198,4 +194,46 @@
 
 .full-wide {
     width: 100%;
+}
+
+.delete-modal {
+    display: none;
+}
+
+.delete-modal .modal {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.delete-box {
+    display: flex;
+    margin-top: 16px;
+    gap: 16px;
+}
+
+.cancel-btn {
+    border-radius: 8px;
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(201, 202, 202);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.confirm-del {
+    color: rgb(185, 56, 56);
+    background-color: #dfb7b7;
+    border-radius: 8px;
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.show {
+    display: flex;
 }

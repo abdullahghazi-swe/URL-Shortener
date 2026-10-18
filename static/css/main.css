@@ -27,13 +27,15 @@ header {
 
 a {
     text-decoration: none;
-    color: #fff;
 }
 
 nav {
     display: flex;
     align-items: center;
     gap: 16px;
+}
+header a {
+    color: #fff;
 }
 
 .logo {

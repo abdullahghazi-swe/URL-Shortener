@@ -32,5 +32,26 @@
     {% endif %}
 
     <a href="{% url 'edit' link.id %}" class="list-item">Edit</a>
+    <button id="deleteBtn">Delete</button>
+
+    {% if not show_qr %}
+        <div class="overlay delete-modal">
+            <div class="modal">
+                <h3>This will permanently delete URL!</h3>
+                <p>Are you sure, you want to delete?</p>
+                <div class="delete-box">
+                    <button class="cancel-btn">Cancel</button>
+                    <form action="{% url 'delete' link.id %}"  method="POST">
+                        {% csrf_token %}
+                        <button class="confirm-del">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'analytics/js/script.js' %}"></script>
 {% endblock %}

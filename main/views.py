@@ -134,3 +134,14 @@ def change_status(request, id):
     url.save()
     return redirect('dashboard')
 
+
+@login_required
+def delete_link(request, id):
+    if request.method != "POST":
+        return redirect('link_details', url_id=id)
+
+    link = UrlList.objects.get(id=id)
+    link.delete()
+    return redirect('dashboard')
+    
+

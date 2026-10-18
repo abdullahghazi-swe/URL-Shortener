@@ -13,6 +13,7 @@ class UrlForm(forms.ModelForm):
     )
     status = forms.ChoiceField(
         choices=[('active', 'Active'), ('disabled', 'Disabled')],
+        required=False,
         widget=forms.Select(attrs={'class': 'status-field'})
     )
 

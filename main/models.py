@@ -9,6 +9,6 @@ class UrlList(models.Model):
     shorten = models.CharField(max_length=10, unique=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='urls')
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=32, default="active")
+    status = models.CharField(max_length=32, default="active", blank=True)
     def __str__(self):
         return self.shorten
